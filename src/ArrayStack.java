@@ -2,8 +2,8 @@ import java.util.Collection;
 import java.util.EmptyStackException;
 
 public class ArrayStack<E> extends Stack<E> {
-    E[] elements;
-    int endStack = 0;
+    private E[] elements;
+    private int endStack = 0;
     final int INITIAL_SIZE;
     final double GROWTH_FACTOR;
 
@@ -13,6 +13,11 @@ public class ArrayStack<E> extends Stack<E> {
         elements = (E[]) new Object[INITIAL_SIZE];
     }
 
+    ArrayStack(int initialSize, int growthFactor) {
+        INITIAL_SIZE = initialSize;
+        GROWTH_FACTOR = growthFactor;
+        elements = (E[]) new Object[INITIAL_SIZE];
+    }
     @Override
     public void push(E value) {
         if (endStack == elements.length) {
